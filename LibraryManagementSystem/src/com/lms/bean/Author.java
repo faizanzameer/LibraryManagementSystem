@@ -2,14 +2,11 @@ package com.lms.bean;
 
 import java.util.List;
 
-public class User {
+public class Author {
 	private long id;
 	private String firstName;
 	private String lastName;
-	private long phoneNumber;
-	private String email;
-	private String address;
-	private List<Book> booksBorrowed;
+	private List<Book> bookList;
 	
 	public long getId() {
 		return id;
@@ -29,29 +26,11 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public long getPhoneNumber() {
-		return phoneNumber;
+	public List<Book> getBookList() {
+		return bookList;
 	}
-	public void setPhoneNumber(long phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public List<Book> getBooksBorrowed() {
-		return booksBorrowed;
-	}
-	public void setBooksBorrowed(List<Book> booksBorrowed) {
-		this.booksBorrowed = booksBorrowed;
+	public void setBookList(List<Book> bookList) {
+		this.bookList = bookList;
 	}
 	
 	@Override
@@ -69,15 +48,15 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Author other = (Author) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
-				+ ", email=" + email + ", address=" + address + ", booksBorrowed=" + booksBorrowed + "]";
+		return "Author [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", bookList=" + bookList
+				+ "]";
 	}
 	
 }
