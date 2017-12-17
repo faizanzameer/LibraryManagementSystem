@@ -37,7 +37,8 @@ public class BookController {
 		}
 		for (Book book : books) {
 			// 2. Check if copies of desired book is available
-			if(bookService.isBookAvailable(book) && numOfBooksUserCanBorrow < BookStore.MAX_BOOKS_BORROWED_COUNT) {
+			if(bookService.isBookAvailable(book) && numOfBooksUserCanBorrow <= BookStore.MAX_BOOKS_BORROWED_COUNT) {
+				bookService.markBookAsBorrowed(book);
 				booksBorrowed.add(book);
 				numOfBooksUserCanBorrow--;
 			}			

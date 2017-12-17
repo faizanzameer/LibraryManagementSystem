@@ -28,6 +28,17 @@ public class BookServiceImpl implements IBookService {
 		}
 		return false;
 	}
+	
+	@Override
+	public void markBookAsBorrowed(Book book) {
+		Book bookInDb = bookDao.getBookById(book.getId());
+		if(null != bookInDb) {
+			int issuesCopies = bookInDb.getIssuedCopies() + 1;
+			int availableCopies = bookInDb.getAvailableCopies() - 1;
+			bookInDb.setIssuedCopies(issuesCopies);
+			bookInDb.setAvailableCopies(availableCopies);
+		}
+	}
 
 	@Override
 	public Book getBookByTitle(String title) {
